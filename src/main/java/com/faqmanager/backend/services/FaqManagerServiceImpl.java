@@ -56,4 +56,16 @@ public class FaqManagerServiceImpl implements FaqManagerService {
         BeanUtils.copyProperties(faqManagerEntity,faqManager);
         return faqManager;
     }
+
+    @Override
+    public FaqManager updateFaq(Long id, FaqManager faqManager) {
+        FaqManagerEntity faqManagerEntity = faqManagerRepository.findById(id).get();
+
+        faqManagerEntity.setQuestion(faqManager.getQuestion());
+        faqManagerEntity.setCategory(faqManager.getCategory());
+        faqManagerEntity.setStatus(faqManager.getStatus());
+
+        faqManagerRepository.save(faqManagerEntity);
+        return faqManager;
+    }
 }

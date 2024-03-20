@@ -44,4 +44,9 @@ public class FaqManagerController {
         return ResponseEntity.ok(faqManager);
     }
 
+    @PutMapping("/faqs/{id}")
+    public ResponseEntity<FaqManager> updateFaq(@PathVariable Long id,@RequestBody FaqManager faqManager){
+        faqManager = faqManagerService.updateFaq(id,faqManager);
+        return ResponseEntity.ok(faqManager);
+    }
 }

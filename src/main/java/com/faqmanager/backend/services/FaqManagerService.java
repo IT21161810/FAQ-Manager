@@ -13,4 +13,6 @@ public interface FaqManagerService {
     boolean deleteFaq(Long id);
 
     FaqManager getFaqById(Long id);
+
+    FaqManager updateFaq(Long id, FaqManager faqManager);
 }
