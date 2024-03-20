@@ -9,4 +9,6 @@ public interface FaqManagerService {
     FaqManager createFAQ(FaqManager faqManager);
 
     List<FaqManager> getAllFaqs();
+
+    boolean deleteFaq(Long id);
 }

@@ -41,4 +41,11 @@ public class FaqManagerServiceImpl implements FaqManagerService {
 
         return faqManagers;
     }
+
+    @Override
+    public boolean deleteFaq(Long id) {
+        FaqManagerEntity faqManager = faqManagerRepository.findById(id).get();
+        faqManagerRepository.delete(faqManager);
+        return true;
+    }
 }
