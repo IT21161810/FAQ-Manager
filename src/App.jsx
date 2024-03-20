@@ -3,15 +3,27 @@ import Navbar from './components/Navbar'
 import Search from './components/Search'
 import FaqTable from './components/FaqTable'
 import Footer from './components/Footer'
+import ViewQuestion from './pages/ViewQuestion'
+import UpdateQuestion from './pages/UpdateQuestion'
+import { Route, Routes } from 'react-router-dom'
 
 function App() {
 
   return (
     <>
-      <Navbar/>
-      <Search/>
-      <FaqTable/>
-      <Footer/>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Navbar />
+            <Search />
+            <FaqTable />
+            <Footer />
+          </>
+        } />
+        <Route path="/update/:id" element={<UpdateQuestion />} />
+        <Route path="/view/:id" element={<ViewQuestion />} />
+      </Routes>
+
     </>
   )
 }
