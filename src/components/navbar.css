@@ -1,8 +1,13 @@
 
 .navbar{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     margin-top: 2rem;
-    gap: 8rem;
+    margin-left: 8rem;
+    margin-right: 8rem;
+}
+
+.addBtn{
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2), 0 2px 5px 0 rgba(0,0,0,0.19);
 }

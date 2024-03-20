@@ -1,0 +1,14 @@
+
+.search{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    padding: 0.5rem;
+    background-color: rgb(255, 255, 255);
+    padding: 0.5rem ;
+    border-radius: 0.5rem;
+}
+
+
