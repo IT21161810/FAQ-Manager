@@ -11,4 +11,6 @@ public interface FaqManagerService {
     List<FaqManager> getAllFaqs();
 
     boolean deleteFaq(Long id);
+
+    FaqManager getFaqById(Long id);
 }

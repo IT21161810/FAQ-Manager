@@ -36,4 +36,12 @@ public class FaqManagerController {
         response.put("deleted",deleted);
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/faqs/{id}")
+    public ResponseEntity<FaqManager> getFaqById(@PathVariable Long id){
+        FaqManager faqManager = null;
+        faqManager = faqManagerService.getFaqById(id);
+        return ResponseEntity.ok(faqManager);
+    }
+
 }
