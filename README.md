@@ -1,10 +1,10 @@
 # FAQ-Manager
 
 
-#Frontend React App
+# Frontend React App
 This repository contains a frontend React application built using Vite and Material-UI.
 
--Table of Contents
+- Table of Contents
 Getting Started
 Prerequisites
 Installation
@@ -17,9 +17,9 @@ Dependencies
 Contributing
 License
 Getting Started
-Prerequisites
-Before running this project, ensure you have Node.js and npm (Node Package Manager) installed on your machine. You can download and install them from Node.js official website.
+- Prerequisites
+- Before running this project, ensure you have Node.js and npm (Node Package Manager) installed on your machine. You can download and install them from Node.js official website.
 
-#Installation
+# Installation
 
-#1.Clone the repository:
+# 1.Clone the repository:
