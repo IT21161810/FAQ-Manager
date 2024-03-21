@@ -57,7 +57,7 @@ public class FaqManagerServiceImpl implements FaqManagerService {
         return faqManager;
     }
 
-    @Override
+    @Override //update question
     public FaqManager updateFaq(Long id, FaqManager faqManager) {
         FaqManagerEntity faqManagerEntity = faqManagerRepository.findById(id).get();
 

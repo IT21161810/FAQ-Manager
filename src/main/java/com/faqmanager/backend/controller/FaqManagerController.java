@@ -20,7 +20,7 @@ public class FaqManagerController {
     public FaqManagerController(FaqManagerService faqManagerService) {
         this.faqManagerService = faqManagerService;
     }
-    @PostMapping("/faqs")
+    @PostMapping("/faqs") //save data
     public FaqManager createFAQ(@RequestBody FaqManager faqManager){
         return faqManagerService.createFAQ(faqManager);
     }
