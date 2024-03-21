@@ -1,6 +1,5 @@
 import './App.css'
 import Navbar from './components/Navbar'
-import Search from './components/Search'
 import FaqTable from './components/FaqTable'
 import Footer from './components/Footer'
 import ViewQuestion from './pages/ViewQuestion'
@@ -15,7 +14,8 @@ function App() {
         <Route path="/" element={
           <>
             <Navbar />
-            <Search />
+    
+            <FaqTable />
             <Footer />
           </>
         } />
