@@ -23,3 +23,20 @@ Getting Started
 # Installation
 
 # 1.Clone the repository:
+
+https://github.com/IT21161810/FAQ-Manager.git
+
+# 2.Navigate to the project directory:
+
+cd frontend
+
+# 3.Install dependencies:
+
+npm install
+
+# Development Server
+To start the development server, run:
+
+npm run dev
+
+# SETUP Backend
