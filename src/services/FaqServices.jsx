@@ -19,6 +19,10 @@ class FaqServices {
     getQuestionById(id){
         return axios.get(BASE_URL + "/" + id)
     }
+
+    updateQuestion(question,id){
+        return axios.put(BASE_URL + "/" + id,question)
+    }
 }
 
 export default new FaqServices()

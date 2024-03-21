@@ -16,7 +16,7 @@ const FaqTable = () => {
 
   const [faqs, setFaqs] = React.useState([])
   const [anchorEl, setAnchorEl] = React.useState(null);
-
+  const [id,setSelectedId] = React.useState()
   const fetchedData = async () => {
     const res = await FaqServices.getAllQuestion()
       .then((res) => setFaqs(res.data))
@@ -28,17 +28,14 @@ const FaqTable = () => {
   }, [])
   
  
-  const handleClick = (event) => {
+  const handleClick = (event, id) => {
     setAnchorEl(event.currentTarget);
+    setSelectedId(id);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  const handleUpdate = async(id) => {
-    console.log(id)
-  }
 
   const handleDelete = async(id) => {
     FaqServices.deleteQuestion(id)
@@ -83,7 +80,7 @@ const FaqTable = () => {
                     aria-label="more"
                     id="long-button"
                     aria-haspopup="true"
-                    onClick={handleClick}
+                    onClick={(event) => handleClick(event, question.id)}
                   >
                     <MoreHorizIcon />
                   </IconButton>
@@ -92,8 +89,8 @@ const FaqTable = () => {
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
                   >
-                    <Link to={`/update/${question.id}`}><MenuItem>Update</MenuItem></Link>
-                    <Link to={`/view/${question.id}`}><MenuItem>View</MenuItem></Link>
+                    <Link to={`/update/${id}`}><MenuItem>Update</MenuItem></Link>
+                    <Link to={`/view/${id}`}><MenuItem>View</MenuItem></Link>
                     <MenuItem onClick={() => { handleClose(); handleDelete(question.id); }}>Delete</MenuItem>
                   </Menu>
                 </TableCell>

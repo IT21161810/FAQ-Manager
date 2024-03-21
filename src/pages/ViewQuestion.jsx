@@ -8,8 +8,9 @@ const ViewQuestion = () => {
 
   const navigate = useNavigate();
   const [faq, setFaq] = useState({});
+  
   const { id } = useParams();
-  console.log(faq)
+
   const getQuestion = async (id) => {
     try {
       const question = await FaqServices.getQuestionById(id);
