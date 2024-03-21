@@ -11,3 +11,11 @@
 .addBtn{
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2), 0 2px 5px 0 rgba(0,0,0,0.19);
 }
+
+.error{
+    color: rgb(253, 57, 57);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}

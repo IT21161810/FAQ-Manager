@@ -12,17 +12,20 @@ import { Button, IconButton, Menu, MenuItem } from '@mui/material';
 import FaqServices from '../services/FaqServices';
 import { Link } from 'react-router-dom';
 
-const FaqTable = () => {
+const FaqTable = ({searchQuery}) => {
 
   const [faqs, setFaqs] = React.useState([])
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [id,setSelectedId] = React.useState()
+  const [filterQuestion,setFilteredQuestion] = React.useState([])
+
   const fetchedData = async () => {
     const res = await FaqServices.getAllQuestion()
       .then((res) => setFaqs(res.data))
       .catch((err) => console.log(err))
   }
 
+  
   React.useEffect(() => {
     fetchedData();
   }, [])
@@ -47,6 +50,18 @@ const FaqTable = () => {
       }
     })
   }
+
+  const handleInputChange = (searchQuery) => {
+    const regex = new RegExp(searchQuery.toLowerCase(), 'i');
+    const filteredQuestion = faqs.filter((faq) => regex.test(faq.question.toLowerCase()));
+  
+    setFilteredQuestion(filteredQuestion);
+  };
+  
+
+  React.useEffect(() => {
+    handleInputChange(searchQuery)
+  },[searchQuery])
 
   return (
     <TableContainer className='tableContainer'>

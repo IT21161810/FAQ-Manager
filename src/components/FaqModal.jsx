@@ -4,6 +4,7 @@ import {
 } from '@mui/material'
 import React, { useState } from 'react'
 import FaqServices from '../services/FaqServices';
+import './navbar.css'
 
 const FaqModal = ({ open, handleClose }) => {
 
@@ -12,6 +13,8 @@ const FaqModal = ({ open, handleClose }) => {
         category: "",
         status: ""
     })
+
+    const [error, setError] = useState('')
 
     const handleChange = (e) => {
         setFaqs((prev) => ({
@@ -22,18 +25,22 @@ const FaqModal = ({ open, handleClose }) => {
 
     const saveQuestion = (e) => {
         e.preventDefault()
-        FaqServices.saveQuestion(faqs).then((response) => {
-            setFaqs({
-                question: "",
-                category: "",
-                status: ""
+        if (faqs.question == '' && faqs.category == '' && faqs.status == '') {
+            setError('Please fill all fields !!')
+        } else {
+            FaqServices.saveQuestion(faqs).then((response) => {
+                setFaqs({
+                    question: "",
+                    category: "",
+                    status: ""
+                })
+            }).then(() => {
+                handleClose()
+                alert('Successfully submitted question')
+            }).catch((err) => {
+                console.log(err)
             })
-        }).then(() => {
-            handleClose()
-           
-        }).catch((err) => {
-            console.log(err)
-        })
+        }
     }
 
 
@@ -41,11 +48,14 @@ const FaqModal = ({ open, handleClose }) => {
         <div style={{ textAlign: 'center' }}>
             <Dialog open={open} onClose={handleClose} fullWidth >
                 <DialogTitle>Add a question</DialogTitle>
+                <p className='error'>{error && error}</p>
                 <DialogContent>
                     <Stack spacing={2} margin={2}>
-                        <TextField variant='outlined' value={faqs.question} name='question' onChange={handleChange} label="Question" required></TextField>
-                        <TextField variant='outlined' value={faqs.category} name='category' onChange={handleChange} label="Category" required></TextField>
-                        <FormControl fullWidth>
+                        <TextField variant='outlined' value={faqs.question} name='question'
+                            onChange={handleChange} label="Question" required></TextField>
+                        <TextField variant='outlined' value={faqs.category} name='category'
+                            onChange={handleChange} label="Category" required></TextField>
+                        <FormControl fullWidth required>
                             <InputLabel id="demo-simple-select-label">Status</InputLabel>
                             <Select
                                 labelId="demo-simple-select-label"
